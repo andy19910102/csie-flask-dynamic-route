@@ -3,6 +3,7 @@ import csv
 from stock import Stock
 
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 # 站內要顯示的個股列表
 stocks = []

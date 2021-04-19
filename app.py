@@ -6,12 +6,12 @@ app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 # 站內要顯示的個股列表
-stocks = []
+stock_list = []
 
 # 打開stock_list.csv
 with open('stock_list.csv', newline='', encoding='utf-8') as stock_csv:
     # 把csv檔案格式轉換為list
-    temp = list(csv.reader(stock_csv))
+    table = list(csv.reader(stock_csv))
 
 
 @app.route('/')
@@ -23,6 +23,7 @@ def index_page():
 @app.route('/stock/<sid>')
 # 個股詳情頁路由
 def stock_detail_page(sid):
+    # 爬取個股詳細資料
     return render_template('stock-detail.html')
 
 
